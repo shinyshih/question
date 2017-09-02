@@ -16,6 +16,8 @@ class qaViewController: UIViewController {
     @IBOutlet weak var answerLabel: UILabel!
     
     var count = 0
+    let random = GKShuffledDistribution(lowestValue: 0, highestValue: qnaArray.count-1)
+    
     
     @IBAction func showAnswerButton(_ sender: Any) {
         answerLabel.isHidden = false
@@ -29,7 +31,6 @@ class qaViewController: UIViewController {
     }
     
     func next() {
-        let random = GKRandomDistribution(lowestValue: 0, highestValue: qnaArray.count-1)
         let randomQuestion = qnaArray[random.nextInt()]
         questionLabel.text = randomQuestion.question
         answerLabel.text = randomQuestion.answer
