@@ -29,19 +29,22 @@ class qaViewController: UIViewController {
     }
     
     func next() {
-        let random = GKShuffledDistribution(lowestValue: 0, highestValue: qnaArray.count - 1)
+        let random = GKRandomDistribution(lowestValue: 0, highestValue: qnaArray.count-1)
         let randomQuestion = qnaArray[random.nextInt()]
         questionLabel.text = randomQuestion.question
         answerLabel.text = randomQuestion.answer
         count += 1
         countLabel.text = "\(count)"
         answerLabel.isHidden = true
+        
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
         next()
         
     }
